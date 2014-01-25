@@ -40,7 +40,10 @@ parser.add_option("-v","--verbose", action="store_true",dest="verbose",default=F
 (options, args) = parser.parse_args()
 
 EXTS = 'jpg', 'jpeg','gif', 'png','bmp'
-
+try:
+  options.threshold = int(options.threshold)
+except:
+  options.threshold = 5
 def hamming(h1, h2):
     diffs = 0
     for ch1,ch2 in zip(h1,h2):
